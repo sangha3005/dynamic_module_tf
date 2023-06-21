@@ -7,7 +7,8 @@ resource "aws_instance" "ec2_instances" {
   #aem_instance_type = var.aem_instance_types[count.index % length(var.aem_instance_types)]
 
   tags = {
-    "Name" = "instance-${var.lane_number}-${var.lane_envs[count.index % length(var.lane_envs)]}-${var.aem_instance_types[count.index % length(var.aem_instance_types)]}"
+    "Name" = "web-instance-${var.lane_envs[count.index % length(var.lane_envs)]}${var.lane_number}-${var.aem_instance_types[count.index % length(var.aem_instance_types)]}"
+    #"Name" = "instance-${var.lane_number}-${var.lane_envs[count.index % length(var.lane_envs)]}-${var.aem_instance_types[count.index % length(var.aem_instance_types)]}"
   }
 
   # Other EC2 resource configurations...
